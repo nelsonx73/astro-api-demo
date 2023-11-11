@@ -3,6 +3,14 @@ import { XataClient } from "../../../xata";
 const client = new XataClient({ apiKey: import.meta.env.XATA_API_KEY });
 
 export async function GET() {
+  const headers = new Headers();
+  headers.append("Access-Control-Allow-Origin", "*"); // Adjust this as needed
+  headers.append(
+    "Access-Control-Allow-Methods",
+    "GET, POST, PUT, DELETE, OPTIONS"
+  );
+  headers.append("Access-Control-Allow-Headers", "Content-Type");
+
   try {
     const data = await client.db.Officials.getAll();
 
