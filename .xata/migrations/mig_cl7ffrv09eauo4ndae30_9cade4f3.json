@@ -1,0 +1,13 @@
+{
+  "id": "mig_cl7ffrv09eauo4ndae30",
+  "parentID": "mig_cl7fbp709eauo4ndace0",
+  "checksum": "1:9cade4f38a9985ef7f27f320b91eb5fc4aa24769184076a8f45c686523b9c27d",
+  "operations": [
+    {
+      "renameTable": {
+        "newName": "Officials",
+        "oldName": "Uniform"
+      }
+    }
+  ]
+}

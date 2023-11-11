@@ -1,0 +1,16 @@
+{
+  "id": "mig_cl7fbp709eauo4ndace0",
+  "parentID": "mig_cl7fbln09eauo4ndac30",
+  "checksum": "1:661c584e2e4dade1c3d10e178b2375bc9873363cf4b94b057a21c76056d6ce01",
+  "operations": [
+    {
+      "addColumn": {
+        "column": {
+          "name": "Badge",
+          "type": "string"
+        },
+        "table": "Uniform"
+      }
+    }
+  ]
+}

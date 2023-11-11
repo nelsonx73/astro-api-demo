@@ -1,0 +1,16 @@
+{
+  "id": "mig_cl7fbln09eauo4ndac30",
+  "parentID": "mig_cl7fbjf09eauo4ndac20",
+  "checksum": "1:fe82e5633487f1aac03e3112d35df355dd6ddba22a2db93bb18c07d023a9bd98",
+  "operations": [
+    {
+      "addColumn": {
+        "column": {
+          "name": "FullName",
+          "type": "string"
+        },
+        "table": "Uniform"
+      }
+    }
+  ]
+}

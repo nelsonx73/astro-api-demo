@@ -1,0 +1,12 @@
+{
+  "id": "mig_cl7far709eauo4ndabsg",
+  "parentID": "mig_cl7e41n09eauo4nda280",
+  "checksum": "1:96e03decc2d2bf6b7748ef009580c03bf3e54872b02b2ea9a6b1e3a0b07c4bb7",
+  "operations": [
+    {
+      "addTable": {
+        "table": "Uniform"
+      }
+    }
+  ]
+}

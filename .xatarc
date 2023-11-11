@@ -1,0 +1,6 @@
+{
+  "databaseURL": "https://OdControl-3f9067.us-east-1.xata.sh/db/OdControl",
+  "codegen": {
+    "output": "src/xata.ts"
+  }
+}

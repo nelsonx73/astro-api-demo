@@ -1,0 +1,18 @@
+{
+  "id": "mig_cl7e41n09eauo4nda280",
+  "parentID": "mig_cl7e3q8c4l9ri3sgmotg",
+  "checksum": "1:1d3ef189103edcd77defeaab58ca3f387169a68b8f63ce6c1ed4a85942a82e48",
+  "operations": [
+    {
+      "addColumn": {
+        "column": {
+          "name": "Name",
+          "type": "string",
+          "notNull": true,
+          "defaultValue": ""
+        },
+        "table": "Vehicles"
+      }
+    }
+  ]
+}
