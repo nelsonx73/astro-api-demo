@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { useStore } from "../stores/store";
+import { getOfficials } from "../services/officialServices";
 
 export default function OfficialTable() {
   const [data, setData] = useState([]);
@@ -7,12 +8,8 @@ export default function OfficialTable() {
 
   useEffect(() => {
     async function getData() {
-      const request = await fetch(
-        "https://astro-api-demo-git-main-nelsonx73.vercel.app/api/officials"
-      );
-      const response = await request.json();
-
-      setData(response);
+      const rows = await getOfficials();
+      if (rows) setData(rows);
     }
 
     getData();
@@ -73,9 +70,14 @@ export default function OfficialTable() {
                   >
                     Edit
                   </button>
-                  {/* <button className="text-red-500 hover:text-red-700">
-                                        Delete
-                                    </button> */}
+                  <button
+                    className="text-red-500 hover:text-red-700"
+                    data-drawer-target="drawer-contact"
+                    data-drawer-show="drawer-contact"
+                    aria-controls="drawer-contact"
+                  >
+                    Delete
+                  </button>
                 </td>
               </tr>
             ))
