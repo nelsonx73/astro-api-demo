@@ -1,0 +1,19 @@
+---
+import OfficialTable from "../components/OfficialTable";
+import OfficialForm from "../components/OfficialForm";
+---
+
+<div class="container-md mx-auto content-center">
+    <div class="mt-10 text-3xl text-center font-bold text-gray-500 mb-3">
+        Officials
+    </div>
+
+    <div class="flex justify-center flex-col md:flex-row mt-10 gap-3">
+        <div class="md:w-1/5 w-full mb-3 md:mb-0">
+            <OfficialForm client:visible />
+        </div>
+        <div class="md:w-1/2 w-full">
+            <OfficialTable client:visible />
+        </div>
+    </div>
+</div>
