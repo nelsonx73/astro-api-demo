@@ -1,5 +1,5 @@
 function getUrl() {
-  // return "http://localhost:4321/api/officials";
+  //return "http://localhost:4321/api/officials";
   return "https://astro-api-demo-git-main-nelsonx73.vercel.app/api/officials";
 }
 
@@ -28,7 +28,7 @@ async function putOfficials(values) {
   const url = getUrl();
   try {
     await fetch(url, {
-      method: "POST",
+      method: "PUT",
       "Content-Type": "appication/json",
       body: JSON.stringify(values),
     });
