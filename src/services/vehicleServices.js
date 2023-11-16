@@ -1,9 +1,9 @@
 function getUrl() {
-  // return "http://localhost:4321/api/officials";
-  return "https://astro-api-demo-git-main-nelsonx73.vercel.app/api/officials";
+  // return "http://localhost:4321/api/vehicles";
+  return "https://astro-api-demo-git-main-nelsonx73.vercel.app/api/vehicles";
 }
 
-async function getOfficials() {
+async function getVehicles() {
   const url = getUrl();
   const request = await fetch(url);
   const response = await request.json();
@@ -11,7 +11,7 @@ async function getOfficials() {
   return response;
 }
 
-async function postOfficials(values) {
+async function postVehicles(values) {
   const url = getUrl();
   try {
     await fetch(url, {
@@ -24,7 +24,7 @@ async function postOfficials(values) {
   }
 }
 
-async function putOfficials(values) {
+async function putVehicles(values) {
   const url = getUrl();
   try {
     await fetch(url, {
@@ -37,4 +37,4 @@ async function putOfficials(values) {
   }
 }
 
-export { getOfficials, postOfficials, putOfficials };
+export { getVehicles, postVehicles, putVehicles };

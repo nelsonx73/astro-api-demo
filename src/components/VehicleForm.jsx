@@ -1,51 +1,45 @@
 import React, { useRef, useEffect } from "react";
 import { useStore } from "../stores/store";
-import { postOfficials, putOfficials } from "../services/officialServices";
+import { postVehicles, putVehicles } from "../services/vehicleServices";
 
-export default function OfficialForm() {
-  const { updateOfficialFlag, official } = useStore();
-  const badgeRef = useRef("");
-  const firstNameRef = useRef("");
-  const lastNameRef = useRef("");
+export default function VehicleForm() {
+  const { updateVehicleFlag, vehicle } = useStore();
+  const unitRef = useRef("");
+  const nameRef = useRef("");
 
   useEffect(() => {
-    if (official) {
-      badgeRef.current.value = official.Badge;
-      firstNameRef.current.value = official.FirstName;
-      lastNameRef.current.value = official.LastName;
+    if (vehicle) {
+      unitRef.current.value = vehicle.Unit;
+      nameRef.current.value = vehicle.Name;
     }
-  }, [official]);
+  }, [vehicle]);
 
   async function handleSubmit(e) {
     e.preventDefault();
 
     const values = {
-      FirstName: firstNameRef.current.value,
-      LastName: lastNameRef.current.value,
-      Badge: badgeRef.current.value,
+      Unit: unitRef.current.value,
+      Name: nameRef.current.value,
     };
-    console.log(values);
-    values.FullName = `${values.FirstName} ${values.LastName}`;
 
-    if (official) {
-      values.id = official.id;
-      await putOfficials(values);
+    if (vehicle) {
+      values.id = vehicle.id;
+      await putVehicles(values);
     } else {
-      await postOfficials(values);
+      await postVehicles(values);
     }
-    badgeRef.current.value = "";
-    firstNameRef.current.value = "";
-    lastNameRef.current.value = "";
 
-    updateOfficialFlag();
+    unitRef.current.value = "";
+    nameRef.current.value = "";
+
+    updateVehicleFlag();
   }
 
   function handleCancel() {
-    badgeRef.current.value = "";
-    firstNameRef.current.value = "";
-    lastNameRef.current.value = "";
+    unitRef.current.value = "";
+    nameRef.current.value = "";
 
-    updateOfficialFlag();
+    updateVehicleFlag();
   }
 
   return (
@@ -53,8 +47,8 @@ export default function OfficialForm() {
       <div className="flex flex-col justify-center max-w-lg mx-auto px-4 space-y-6  text-[#333]">
         <div className="relative">
           <input
-            ref={badgeRef}
-            name="Badge"
+            ref={unitRef}
+            name="Unit"
             type="text"
             id="floating_outlined"
             className="block px-2.5 pb-2.5 pt-4 w-full text-sm text-gray-900 bg-transparent rounded-lg border-1 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer"
@@ -65,14 +59,14 @@ export default function OfficialForm() {
             htmlFor="floating_outlined"
             className="absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-4 scale-75 top-2 z-10 origin-[0] bg-white dark:bg-gray-900 px-2 peer-focus:px-2 peer-focus:text-blue-600 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:-translate-y-1/2 peer-placeholder-shown:top-1/2 peer-focus:top-2 peer-focus:scale-75 peer-focus:-translate-y-4 rtl:peer-focus:translate-x-1/4 rtl:peer-focus:left-auto start-1"
           >
-            Badge #
+            Unit #
           </label>
         </div>
 
         <div className="relative">
           <input
-            ref={firstNameRef}
-            name="FirstName"
+            ref={nameRef}
+            name="Name"
             type="text"
             id="floating_outlined"
             className="block px-2.5 pb-2.5 pt-4 w-full text-sm text-gray-900 bg-transparent rounded-lg border-1 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer"
@@ -83,25 +77,7 @@ export default function OfficialForm() {
             htmlFor="floating_outlined"
             className="absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-4 scale-75 top-2 z-10 origin-[0] bg-white dark:bg-gray-900 px-2 peer-focus:px-2 peer-focus:text-blue-600 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:-translate-y-1/2 peer-placeholder-shown:top-1/2 peer-focus:top-2 peer-focus:scale-75 peer-focus:-translate-y-4 rtl:peer-focus:translate-x-1/4 rtl:peer-focus:left-auto start-1"
           >
-            First Name
-          </label>
-        </div>
-
-        <div className="relative">
-          <input
-            ref={lastNameRef}
-            name="LastName"
-            type="text"
-            id="floating_outlined"
-            className="block px-2.5 pb-2.5 pt-4 w-full text-sm text-gray-900 bg-transparent rounded-lg border-1 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer"
-            placeholder=" "
-            required
-          />
-          <label
-            htmlFor="floating_outlined"
-            className="absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-4 scale-75 top-2 z-10 origin-[0] bg-white dark:bg-gray-900 px-2 peer-focus:px-2 peer-focus:text-blue-600 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:-translate-y-1/2 peer-placeholder-shown:top-1/2 peer-focus:top-2 peer-focus:scale-75 peer-focus:-translate-y-4 rtl:peer-focus:translate-x-1/4 rtl:peer-focus:left-auto start-1"
-          >
-            Last Name
+            Vehicle Name
           </label>
         </div>
 
@@ -110,7 +86,7 @@ export default function OfficialForm() {
             type="submit"
             className="px-6 py-2 rounded text-white text-sm tracking-wider font-semibold border-none outline-none bg-blue-600 hover:bg-blue-700 active:bg-blue-600"
           >
-            {official ? "Update" : "Insert"}
+            {vehicle ? "Update" : "Insert"}
           </button>
 
           <button

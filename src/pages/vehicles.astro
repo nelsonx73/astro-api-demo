@@ -1,0 +1,21 @@
+---
+import Layout from "../layouts/Layout.astro";
+import VehicleForm from "../components/VehicleForm";
+import VehicleTable from "../components/VehicleTable";
+---
+<Layout title="Vehicles">
+<div class="container-md mx-auto content-center">
+    <div class="mt-10 text-3xl text-center font-bold text-gray-500 mb-3">
+        Vehicles
+    </div>
+
+    <div class="flex justify-center flex-col md:flex-row mt-10 gap-3">
+        <div class="md:w-1/5 w-full mb-3 md:mb-0">
+            <VehicleForm client:visible />
+        </div>
+        <div class="md:w-1/2 w-full">
+            <VehicleTable client:visible />
+        </div>
+    </div>
+</div>
+</Layout>
